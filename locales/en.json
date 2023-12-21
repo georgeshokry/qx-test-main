@@ -3,5 +3,12 @@
   "language": "العربية",
   "sar": "SAR",
   "point": "Point",
-  "Start-from-here": "Start from here"
+  "Start-from-here": "Start from here",
+  "upcoming-sessions": "Upcoming Sessions",
+  "join": "Join",
+  "dismiss": "Dismiss",
+  "to": "to",
+  "no-sessions": "You have  ",
+  "upcoming": "no upcoming sessions",
+  "no-sessions-second": "- start sharing a conversation with a mentor."
 }

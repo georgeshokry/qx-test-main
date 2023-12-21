@@ -3,5 +3,12 @@
   "language": "English",
   "sar": "ريال",
   "point": "نقطة",
-  "Start-from-here": "ابدأ من هنا"
+  "Start-from-here": "ابدأ من هنا",
+  "upcoming-sessions": "الجلسات القادمة",
+  "join": "فتح",
+  "dismiss": "الغاء",
+  "to": "الى",
+  "no-sessions": "ليس لديك",
+  "upcoming": "جلسات قادمة - ",
+  "no-sessions-second": " ابدا جلسة جديدة مع مرشد"
 }

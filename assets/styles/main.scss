@@ -4,7 +4,9 @@
 @import './sizes.scss';
 @import './transition.scss';
 @import './text-elements.scss';
-@import 'animate.css';
+// @import 'animate.css';
+
+@import './components/day-item.scss';
 
 html,
 a {
