@@ -7,7 +7,7 @@
       <calender @choose-date="chooseDate" />
     </div>
     <div class="h-full p-4 w-full lg:w-1/3 sm:w-1/2">
-      <Sessions :sessions-list="filteredSession" />
+      <Sessions :sessions-list="filteredSession" @remove-session="removeSession" />
     </div>
   </div>
 </template>
@@ -36,6 +36,7 @@ export default {
           end_date: '2023-12-21 11:30:06',
 
           zoom_link: 'https://zoom.us/j/1234567890?pwd=1234567890',
+          id: '12562'
         },
         {
           company_name: 'Memorisely',
@@ -45,6 +46,7 @@ export default {
           start_date: '2023-12-21 11:00:06',
           end_date: '2023-12-21 11:30:06',
           zoom_link: 'https://zoom.us/j/1234567890?pwd=1234567890',
+          id: '9851651'
         },
         {
           company_name: 'Memorisely',
@@ -54,6 +56,7 @@ export default {
           start_date: '2023-12-23 11:00:06',
           end_date: '2023-12-23 11:30:06',
           zoom_link: 'https://zoom.us/j/1234567890?pwd=1234567890',
+          id: '89513212'
         },
         {
           company_name: 'Swvl',
@@ -63,6 +66,7 @@ export default {
           start_date: '2023-12-23 11:00:06',
           end_date: '2023-12-23 11:30:06',
           zoom_link: 'https://zoom.us/j/1234567890?pwd=1234567890',
+          id: '898453'
         },
         {
           company_name: 'Basket باسكت',
@@ -73,6 +77,7 @@ export default {
           start_date: '2023-12-23 11:00:06',
           end_date: '2023-12-23 11:30:06',
           zoom_link: 'https://zoom.us/j/1234567890?pwd=1234567890',
+          id: '89559889'
         },
       ],
       selectedDate: '',
@@ -91,6 +96,11 @@ export default {
     filterSessionsByDate() {
       this.filteredSession = this.sessions.filter((session) => {
         return moment(new Date(session.start_date)).day() === moment(new Date(this.selectedDate)).day()
+      })
+    },
+    removeSession(sessionId) {
+      this.filteredSession = this.filteredSession.filter((session) => {
+        return session.id !== sessionId
       })
     }
   },

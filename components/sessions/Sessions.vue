@@ -22,10 +22,10 @@
                     </div>
                     <div class="pt-3">
                         <button class="p-3 px-4 rounded-xl bg-active text-white"
-                            style="background: var(--border-secondary);">
+                            style="background: var(--border-secondary);" @click="joinSession(session.id)">
                             {{ $t('join') }}
                         </button>
-                        <button class="p-3 px-4 rounded-xl">
+                        <button class="p-3 px-4 rounded-xl" @click="removeSession(session.id)">
                             {{ $t('dismiss') }}
                         </button>
                     </div>
@@ -63,6 +63,12 @@ export default {
             moment.locale(this.$i18n.locale)
             return moment(new Date(timestamp)).format('h:mm a')
         },
+        joinSession(sessionId) {
+            window.open('https://zoom.us/', '_blank')
+        },
+        removeSession(sessionId) {
+            this.$emit('remove-session', sessionId)
+        }
     }
 }
 </script>
