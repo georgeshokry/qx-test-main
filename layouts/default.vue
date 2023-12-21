@@ -1,16 +1,12 @@
 <template>
   <div>
     <client-only>
-      <div
-        class="justify container mx-auto flex flex-col items-center gap-[40px] pt-[100px]"
-      >
-        <div
-          class="mt-[50px] w-fit cursor-pointer rounded-[8px] bg-[#000] py-[6px] px-[11px] text-inverted hover:brightness-125"
-          @click="changeLanguage"
-        >
+      <div class="justify container mx-auto flex flex-col items-center gap-[40px] pt-[100px]">
+        <div class=" w-fit cursor-pointer rounded-[8px] bg-[#000] py-[6px] px-[11px] text-inverted hover:brightness-125"
+          @click="changeLanguage">
           {{ $t('language') }}
         </div>
-        <div :dir="lang === 'en' ? 'ltr' : 'rtl'">
+        <div class="container" :dir="lang === 'en' ? 'ltr' : 'rtl'">
           <Nuxt />
         </div>
       </div>
@@ -24,13 +20,13 @@ export default {
   props: {},
   data() {
     return {
-      lang: 'ar',
+      lang: this.$i18n.fallbackLocale,
     }
   },
   head: {},
   computed: {},
   watch: {},
-  mounted() {},
+  mounted() { this.setUserLang() },
   methods: {
     changeLanguage() {
       if (this.lang === 'ar') {
@@ -40,7 +36,16 @@ export default {
         this.lang = 'ar'
         this.$i18n.locale = 'ar'
       }
+      localStorage.setItem('user-lang', this.$i18n.locale)
     },
+    setUserLang() {
+      if (localStorage.getItem('user-lang')) {
+        this.lang = localStorage.getItem('user-lang')
+      } else {
+        localStorage.setItem('user-lang', this.$i18n.fallbackLocale)
+      }
+      this.$i18n.locale = this.lang
+    }
   },
 }
 </script>
